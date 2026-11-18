@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f2e8">
+  <meta name="description" content="Một lá thư, sáu khoảnh khắc và một lời hẹn. Gửi riêng anh, ngày 19/11.">
+  <meta name="robots" content="noindex, nofollow, noimageindex">
+  <title>Chỉ riêng anh — Một lá thư ngày 19/11</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <svg class="svg-definitions" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="heart" viewBox="0 0 24 24"><path d="M20.4 4.6a5.5 5.5 0 0 0-7.8 0L12 5.2l-.6-.6a5.5 5.5 0 0 0-7.8 7.8L12 21l8.4-8.6a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="music-note" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13M9 9l11-2"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></symbol>
+    <symbol id="restart-icon" viewBox="0 0 24 24"><path d="M4 10a8 8 0 1 1 .9 6.1M4 4v6h6"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <button class="brand" id="home" type="button" aria-label="Trở về phong bì">
+      <span class="brand-icon"><svg class="icon"><use href="#heart"></use></svg></span>
+      <span>Chỉ riêng anh.</span>
+    </button>
+    <div class="header-right">
+      <time datetime="2026-11-19">19 <span>·</span> 11</time>
+      <div class="music-player"><button class="round-button music-toggle" type="button" data-music-toggle aria-label="Bật nhạc nền" aria-pressed="false" title="Bật nhạc nền"><svg class="icon" aria-hidden="true"><use href="#music-note"></use></svg></button><div class="volume-panel"><div class="volume-label"><label for="music-volume">Âm lượng</label><output id="music-volume-label" for="music-volume">32%</output></div><input id="music-volume" type="range" min="0" max="100" value="32" aria-label="Âm lượng nhạc nền"></div></div>
+      <button class="restart-button" id="restart" type="button" aria-label="Đọc lại từ đầu" hidden>
+        <svg class="icon"><use href="#restart-icon"></use></svg><span>Mở lại</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <nav class="journey-nav" id="journey-nav" aria-label="Các phần của món quà" hidden>
+      <button data-view="letter-view" type="button" disabled><span>01</span>Lá thư</button>
+      <i aria-hidden="true"></i>
+      <button data-view="album-view" type="button" disabled><span>02</span>Ảnh của mình</button>
+      <i aria-hidden="true"></i>
+      <button data-view="gift-view" type="button" disabled><span>03</span>Lời hẹn</button>
+    </nav>
+
+    <!-- Màn 1: Chạm dấu sáp để mở phong bì. -->
+    <section class="view cover-view" id="cover-view" aria-labelledby="cover-title">
+      <div class="cover-heading">
+        <p class="eyebrow"><span aria-hidden="true">✦</span> MỘT ĐIỀU NHỎ, CHO NGƯỜI EM THƯƠNG</p>
+        <h1 id="cover-title" tabindex="-1">Anh có một lá thư<br><em>chưa đọc.</em></h1>
+        <p class="cover-intro">Có những điều em vẫn muốn nói với anh,<br>bằng một cách hơi khác mọi ngày.</p>
+      </div>
+      <div class="mail-scene" id="mail-scene">
+        <span class="scene-spark spark-one" aria-hidden="true">✧</span>
+        <span class="scene-spark spark-two" aria-hidden="true">✦</span>
+        <span class="scene-word" aria-hidden="true">for you, with love</span>
+        <button class="mail-envelope" id="envelope" type="button" aria-label="Mở phong bì" aria-controls="letter-view" aria-expanded="false">
+          <span class="envelope-back" aria-hidden="true"></span>
+          <span class="envelope-letter" aria-hidden="true">
+            <span class="peek-date">19.11 — GỬI RIÊNG ANH</span>
+            <span class="peek-title">Anh ơi,</span>
+            <span class="peek-lines"></span>
+            <svg class="peek-heart icon"><use href="#heart"></use></svg>
+          </span>
+          <span class="envelope-front" aria-hidden="true"></span>
+          <span class="envelope-flap" aria-hidden="true"></span>
+          <span class="envelope-address" aria-hidden="true">Gửi người em thương,</span>
+          <span class="envelope-post" aria-hidden="true">THƯ TAY<br>19 · 11</span>
+          <span class="wax-seal" id="wax-seal" aria-hidden="true"><svg class="icon"><use href="#heart"></use></svg></span>
+        </button>
+        <p class="envelope-hint">Chạm vào trái tim để mở nhé <span aria-hidden="true">↟</span></p>
+      </div>
+      <div class="cover-actions">
+        <button class="primary" id="open-letter" type="button" aria-controls="letter-view" aria-expanded="false">Mở thư của em <svg class="icon"><use href="#arrow"></use></svg></button>
+        <p class="small-note" id="opening-status" role="status">Một lá thư · Sáu khoảnh khắc · Một lời hẹn</p>
+      </div>
+    </section>
+
+    <!-- Màn 2: Sửa lời chúc trong các đoạn data-type bên dưới. -->
+    <section class="view letter-view" id="letter-view" aria-labelledby="letter-title" hidden>
+      <div class="section-heading">
+        <p class="eyebrow">01 / MỘT LÁ THƯ</p>
+        <h2 id="letter-title" tabindex="-1">Có vài điều em muốn nói.</h2>
+        <p>Một chút thật lòng, gửi đến anh.</p>
+      </div>
+      <article class="letter-paper" aria-label="Lá thư gửi anh">
+        <span class="paper-tape" aria-hidden="true"></span>
+        <div class="paper-top"><time datetime="2026-11-19">Ngày 19 tháng 11</time><span>Gửi riêng anh <svg class="icon"><use href="#heart"></use></svg></span></div>
+        <div class="letter-copy" id="letter-copy">
+          <p class="salutation" data-type>Anh ơi,</p>
+          <p data-type>Hôm nay là 19/11, em muốn dành một chút dịu dàng cho anh.</p>
+          <p data-type>Cảm ơn anh vì những lần làm em cười, vì những lúc chỉ cần ngồi cạnh nhau là em đã thấy một ngày dễ thương hơn.</p>
+          <p data-type>Em giữ lại mấy tấm ảnh ở đây, vì tấm nào cũng có anh. Mong sau này tụi mình vẫn có thêm thật nhiều khoảnh khắc như thế.</p>
+          <p data-type>Chúc anh luôn vui, được yêu thương và có người ở bên trong những ngày mệt mỏi. Hôm nay đến lượt anh được chiều rồi nha.</p>
+          <p class="signature" data-type>Thương anh nhiều,
+Em. ♡</p>
+        </div>
+        <div class="paper-bottom" aria-hidden="true"><span>một lá thư nhỏ</span><span>một người rất thương</span></div>
+      </article>
+      <div class="letter-actions">
+        <p class="writing-status" id="writing-status" role="status"><span class="writing-dot" aria-hidden="true"></span>Em đang viết vài điều cho anh…</p>
+        <button class="text-button" id="skip-typing" type="button">Hiện hết thư <span aria-hidden="true">↗</span></button>
+        <button class="primary" id="next-to-album" type="button" hidden>Xem chuyện của tụi mình <svg class="icon"><use href="#arrow"></use></svg></button>
+      </div>
+    </section>
+
+    <!-- Màn 3: Sáu ảnh thật, xếp thành chồng Polaroid. -->
+    <section class="view album-view" id="album-view" aria-labelledby="album-title" hidden>
+      <div class="section-heading">
+        <p class="eyebrow">02 / NHỮNG NGÀY CÓ ANH</p>
+        <h2 id="album-title" tabindex="-1">Ảnh nào cũng muốn giữ.</h2>
+        <p>Em cất sáu khoảnh khắc ở đây. Anh xem cùng em nha.</p>
+      </div>
+      <div class="album-composition">
+        <span class="album-scribble scribble-left" aria-hidden="true">Có anh,<br>là đủ dễ thương.</span>
+        <div class="photo-stage" id="photo-stage" aria-label="Chồng ảnh của tụi mình">
+          <button class="polaroid" data-photo="0" type="button" aria-haspopup="dialog" aria-label="Xem lớn ảnh 1: Đứng sát lại tí nào.">
+            <span class="photo-tape" aria-hidden="true"></span>
+            <img src="assets/01.png" width="960" height="1280" alt="Hai đứa tựa vào nhau và chụp qua gương" loading="lazy" decoding="async" style="--photo-position:50% 40%">
+            <span class="polaroid-caption">Đứng sát lại tí nào.</span><span class="photo-number" aria-hidden="true">01 / 06</span>
+          </button>
+          <button class="polaroid" data-photo="1" type="button" aria-haspopup="dialog" aria-label="Xem lớn ảnh 2: Hôm em đội mũ cao bồi.">
+            <span class="photo-tape" aria-hidden="true"></span>
+            <img src="assets/02.png" width="784" height="1280" alt="Hai đứa chụp ảnh trước tường photobooth, em đội mũ cao bồi" loading="lazy" decoding="async" style="--photo-position:50% 30%">
+            <span class="polaroid-caption">Hôm em đội mũ cao bồi.</span><span class="photo-number" aria-hidden="true">02 / 06</span>
+          </button>
+          <button class="polaroid" data-photo="2" type="button" aria-haspopup="dialog" aria-label="Xem lớn ảnh 3: Ghé sát nhau thêm chút.">
+            <span class="photo-tape" aria-hidden="true"></span>
+            <img src="assets/03.png" width="960" height="1280" alt="Ảnh selfie hai đứa ghé đầu sát nhau" loading="lazy" decoding="async" style="--photo-position:50% 53%">
+            <span class="polaroid-caption">Ghé sát nhau thêm chút.</span><span class="photo-number" aria-hidden="true">03 / 06</span>
+          </button>
+          <button class="polaroid" data-photo="3" type="button" aria-haspopup="dialog" aria-label="Xem lớn ảnh 4: Em cười, anh lo chụp.">
+            <span class="photo-tape" aria-hidden="true"></span>
+            <img src="assets/04.png" width="720" height="960" alt="Em chống má cười bên anh khi hai đứa chụp qua gương" loading="lazy" decoding="async" style="--photo-position:50% 80%">
+            <span class="polaroid-caption">Em cười, anh lo chụp.</span><span class="photo-number" aria-hidden="true">04 / 06</span>
+          </button>
+          <button class="polaroid" data-photo="4" type="button" aria-haspopup="dialog" aria-label="Xem lớn ảnh 5: Thêm tấm nữa rồi đi nha.">
+            <span class="photo-tape" aria-hidden="true"></span>
+            <img src="assets/05.png" width="777" height="1280" alt="Hai đứa đứng cạnh nhau trong gương, em giơ tay chữ V" loading="lazy" decoding="async" style="--photo-position:57% 60%">
+            <span class="polaroid-caption">Thêm tấm nữa rồi đi nha.</span><span class="photo-number" aria-hidden="true">05 / 06</span>
+          </button>
+          <button class="polaroid" data-photo="5" type="button" aria-haspopup="dialog" aria-label="Xem lớn ảnh 6: Góc này cũng giữ luôn.">
+            <span class="photo-tape" aria-hidden="true"></span>
+            <img src="assets/06.png" width="960" height="1280" alt="Ảnh selfie hai đứa từ góc thấp, em chu môi còn anh nhìn xuống máy ảnh" loading="lazy" decoding="async" style="--photo-position:50% 30%">
+            <span class="polaroid-caption">Góc này cũng giữ luôn.</span><span class="photo-number" aria-hidden="true">06 / 06</span>
+          </button>
+        </div>
+        <span class="album-scribble scribble-right" aria-hidden="true">Tấm này nữa,<br>em cũng thích. ♡</span>
+      </div>
+      <div class="album-controls">
+        <button class="round-button previous-arrow" id="previous-photo" type="button" aria-label="Ảnh trước"><svg class="icon"><use href="#arrow"></use></svg></button>
+        <div class="album-pagination"><p id="album-count" aria-live="polite">01 <span>/ 06</span></p><div class="photo-dots" id="photo-dots" aria-label="Chọn ảnh"></div></div>
+        <button class="round-button" id="next-photo" type="button" aria-label="Ảnh tiếp"><svg class="icon"><use href="#arrow"></use></svg></button>
+      </div>
+      <p class="small-note album-hint">Vuốt để lật ảnh · Chạm vào ảnh để xem lớn</p>
+      <div class="album-next">
+        <p id="album-last-note">Sáu tấm ảnh, và còn nhiều ngày có nhau.</p>
+        <button class="primary" id="next-to-gift" type="button" hidden>Còn một lời hẹn… <svg class="icon"><use href="#arrow"></use></svg></button>
+      </div>
+    </section>
+
+    <!-- Màn 4: Nội dung món quà có thể sửa trực tiếp ở đây. -->
+    <section class="view gift-view" id="gift-view" aria-labelledby="gift-title" hidden>
+      <div class="section-heading">
+        <p class="eyebrow">03 / MỘT LỜI HẸN</p>
+        <h2 id="gift-title" tabindex="-1">Còn một điều nữa…</h2>
+        <p>Món quà cuối cùng, dành riêng cho anh.</p>
+      </div>
+      <div class="gift-before" id="gift-before">
+        <div class="gift-illustration" aria-hidden="true"><svg class="icon"><use href="#heart"></use></svg><span>01 TẤM VÉ</span></div>
+        <p class="gift-promise">Em còn nợ anh<br><em>một buổi hẹn.</em></p>
+        <p class="gift-note">Anh nhận rồi thì nhớ giữ lời hẹn với em nha.</p>
+        <button class="primary" id="reveal-ticket" type="button" aria-controls="ticket" aria-expanded="false">Nhận quà của anh <svg class="icon"><use href="#heart"></use></svg></button>
+      </div>
+      <div class="gift-after" id="gift-after" hidden>
+        <article class="date-ticket" id="ticket" tabindex="-1" aria-label="Vé hẹn hò dành cho anh">
+          <div class="ticket-main">
+            <p class="ticket-eyebrow">MỘT BUỔI HẸN CÙNG EM</p>
+            <h3>Một buổi hẹn,<br><em>anh chọn món.</em></h3>
+            <p class="ticket-description">Em đặt bàn. Em mời.<br>Anh chỉ cần có mặt. ♡</p>
+            <div class="ticket-fields"><div><span>NGƯỜI ĐƯỢC CHIỀU</span><strong>Anh</strong></div><div><span>NGƯỜI CHUẨN BỊ</span><strong>Em</strong></div></div>
+          </div>
+          <div class="ticket-stub"><svg class="icon"><use href="#heart"></use></svg><time datetime="2026-11-19">19<br><span>THÁNG 11</span></time><span class="ticket-serial">N° 001</span></div>
+        </article>
+        <p class="gift-ending">19/11 vui nhé, người em thương.</p>
+        <p class="small-note">Không có ngày hết hạn cho lời hẹn này.</p>
+        <button class="text-button" id="read-again" type="button"><svg class="icon"><use href="#restart-icon"></use></svg>Đọc lại từ đầu</button>
+      </div>
+    </section>
+    <noscript><p class="no-script">Anh bật JavaScript trong trình duyệt để mở thư và xem món quà nhé.</p></noscript>
+  </main>
+
+  <footer class="site-footer"><span>Một món quà nhỏ, một người rất thương.</span><span>Em làm, vì anh. <svg class="icon"><use href="#heart"></use></svg></span></footer>
+  <audio id="background-music" src="assets/music/nhac-cho-anh.wav" preload="none" loop></audio>
+  <div class="fx-layer" id="fx-layer" aria-hidden="true"></div>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Xem ảnh của tụi mình">
+    <div class="lightbox-header">
+      <div class="lightbox-heading"><span class="lightbox-kicker">KỶ NIỆM CỦA MÌNH</span><p id="lightbox-count" aria-live="polite">Ảnh 1 / 6</p></div>
+      <div class="lightbox-header-actions"><button class="round-button music-toggle" type="button" data-music-toggle aria-label="Bật nhạc nền" aria-pressed="false" title="Bật nhạc nền"><svg class="icon" aria-hidden="true"><use href="#music-note"></use></svg></button><button class="round-button close-button" id="close-photo" type="button" aria-label="Đóng ảnh" autofocus>×</button></div>
+    </div>
+    <figure><div class="lightbox-image-frame"><img id="large-photo" alt=""></div><figcaption id="lightbox-caption"></figcaption></figure>
+    <div class="lightbox-controls"><button class="round-button previous-arrow" id="lightbox-previous" type="button" aria-label="Ảnh lớn trước"><svg class="icon"><use href="#arrow"></use></svg></button><span>Giữ lại những ngày có nhau.</span><button class="round-button" id="lightbox-next" type="button" aria-label="Ảnh lớn tiếp"><svg class="icon"><use href="#arrow"></use></svg></button></div>
+  </dialog>
+</body>
+</html>
